@@ -1,2 +1,2 @@
-# JAVA-Spring
-Java Spring code
+# JAVA
+Java code
