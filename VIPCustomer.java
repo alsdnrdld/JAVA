@@ -1,37 +1,45 @@
-package ch03;
+package ch06;
 
-
-// Step2. 우수고객 클래스 만들기
-
-/* VIP고객은 가격의 10%를 할인해 줌
- * 보너스 포인트 비율은 5%이다. 
- * 전문 상담원이 배정된다. 
- * */
 public class VIPCustomer extends Customer {
-	
-		//	private int customerID;
-		//	private String customerName;
-		//	private String customerGrade;
-		//	int bonusPoint;
-		//	double bonusRatio;    ---->상속을 받으면 더 이상 이 부분을 코딩 안해도 됨 
-	
+	private int agentID;
 	double salesRatio;
-	String agentID;  //<--- 전문 상담원 ID
 	
-	
-	public VIPCustomer() {
-		System.out.println("VIPCustomer() call");
-		customerGrade ="VIP";
+	/*public VIPCustomer() {
+		customerGrade = "VIP";    //오류 발생
 		bonusRatio = 0.05;
 		salesRatio = 0.1;
 		
+		System.out.println("VIPCustomer() 생성자 호출");
+	}
+	*/
+	
+	public VIPCustomer(int customerID, String customerName) {
+		super(customerID, customerName);
+		
+		customerGrade = "VIP";
+		bonusRatio = 0.05;
+		salesRatio = 0.1;
+		
+		//System.out.println("VIPCustomer(int, String) 생성자 호출");
+	}
+	
+	
+	
+	@Override
+	public int calcPrice(int price) {
+		bonusPoint += price * bonusRatio;
+		return price - (int)(price * salesRatio);
 	}
 
 
-	public String getAgentID() {
+
+	public int getAgentID() {
 		return agentID;
 	}
-
 	
-	
+	@Override
+	public String showCustomerInfo() {
+		return customerName + "님의 등급은 " + customerGrade + 
+				"이며, 보너스 포인트는 " + bonusPoint + "입니다";
+	}
 }
