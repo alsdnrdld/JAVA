@@ -1,4 +1,4 @@
-package ch02;
+package ch03;
 
 
 // Step2. 우수고객 클래스 만들기
@@ -20,6 +20,7 @@ public class VIPCustomer extends Customer {
 	
 	
 	public VIPCustomer() {
+		System.out.println("VIPCustomer() call");
 		customerGrade ="VIP";
 		bonusRatio = 0.05;
 		salesRatio = 0.1;

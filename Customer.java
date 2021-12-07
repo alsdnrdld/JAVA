@@ -1,4 +1,4 @@
-package ch02;
+package ch03;
 /* < 상 황 > 
  * 회사에서 고객 정보를 활용한 맞춤 서비스를 하기 위해 일반고객(Customer)과 
    이보다 충성도가 높은 우수고객(VIPCustomer)에 따른 서비스를 제공하고자 함
@@ -26,6 +26,7 @@ public class Customer {
 	public Customer() {
 		bonusRatio = 0.01;
 		customerGrade = "Silver";
+		System.out.println("Customer() call");
 	}
 	
 	public int calcPrice(int price) {  
